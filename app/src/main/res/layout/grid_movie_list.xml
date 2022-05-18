@@ -23,7 +23,6 @@
         android:layout_margin="10dp"
         app:cardElevation="8dp">
 
-        <!--        android:onClick="@{() -> clickListener.onClick(data)}"-->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:padding="8dp"
             android:layout_width="match_parent"
@@ -60,15 +59,15 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/image"
-                tools:text="Some date" />
+                tools:text="Titanic" />
 
             <TextView
                 android:id="@+id/subtitle_text"
                 android:text="@{data.releaseDate}"
                 android:textSize="18sp"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center|start"
+                android:layout_gravity="top|start"
                 android:layout_weight="1"
                 android:ellipsize="end"
                 android:maxLines="5"
@@ -76,7 +75,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text" />
+                app:layout_constraintTop_toBottomOf="@+id/text"
+                tools:text="1990-05-12"/>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
