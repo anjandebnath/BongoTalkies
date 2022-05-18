@@ -57,7 +57,7 @@ class MovieListFragment : Fragment(){
 
         // pass argument to the next fragment
         adapter.clickListener.onItemClick = {
-            findNavController().navigate(MovieListFragmentDirections.actionUsersListToUserDetails(it.id))
+            findNavController().navigate(MovieListFragmentDirections.actionMovieIdToDetails(it.id))
         }
     }
 
