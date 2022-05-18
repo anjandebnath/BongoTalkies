@@ -24,7 +24,6 @@ class MovieListFragment : Fragment(){
     // from the activity-ktx artifact
     private val viewModel: MovieListViewModel by viewModels()
     @Inject
-    //lateinit var adapter: MovieListAdapter
     lateinit var adapter: MoviePagedAdapter
 
     private var _binding: FragmentMovieListBinding? = null
@@ -56,10 +55,6 @@ class MovieListFragment : Fragment(){
             }
         }
 
-
-//        viewModel.data.observe(viewLifecycleOwner, {
-//            adapter.submitList(it)
-//        })
         // pass argument to the next fragment
         adapter.clickListener.onItemClick = {
             findNavController().navigate(MovieListFragmentDirections.actionUsersListToUserDetails(it.id))
