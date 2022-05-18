@@ -7,7 +7,7 @@
 
         <variable
             name="data"
-            type="com.assignment.bongotalkies.domain.MovieListItem" />
+            type="com.assignment.bongotalkies.network.model.ResultMovie" />
 
         <variable
             name="clickListener"
@@ -23,11 +23,13 @@
         android:layout_margin="10dp"
         app:cardElevation="8dp">
 
+        <!--        android:onClick="@{() -> clickListener.onClick(data)}"-->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:padding="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> clickListener.onClick(data)}">
+            android:onClick="@{() -> clickListener.onClick(data)}"
+            >
 
             <ImageView
                 android:id="@+id/image"

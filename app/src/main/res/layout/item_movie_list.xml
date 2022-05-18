@@ -7,7 +7,7 @@
 
         <variable
             name="data"
-            type="com.assignment.bongotalkies.domain.MovieListItem" />
+            type="com.assignment.bongotalkies.network.model.ResultMovie" />
 
         <variable
             name="clickListener"

@@ -13,7 +13,8 @@ import java.util.*
 @BindingAdapter("imageUrl")
 fun loadImage(view: ImageView, url: String?) {
     if (!url.isNullOrEmpty()) {
-        Glide.with(view.context).load(url).into(view)
+        var imgUrl = Constants.IMAGE_CDN + url
+        Glide.with(view.context).load(imgUrl).into(view)
     }
 }
 

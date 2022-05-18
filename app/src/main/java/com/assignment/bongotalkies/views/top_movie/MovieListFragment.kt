@@ -7,11 +7,14 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.assignment.bongotalkies.R
 import com.assignment.bongotalkies.databinding.FragmentMovieListBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -20,9 +23,9 @@ class MovieListFragment : Fragment(){
     // Use the 'by viewModels()' Kotlin property delegate
     // from the activity-ktx artifact
     private val viewModel: MovieListViewModel by viewModels()
-
     @Inject
-    lateinit var adapter: MovieListAdapter
+    //lateinit var adapter: MovieListAdapter
+    lateinit var adapter: MoviePagedAdapter
 
     private var _binding: FragmentMovieListBinding? = null
     private val binding get() = _binding!!
@@ -47,9 +50,16 @@ class MovieListFragment : Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.data.observe(viewLifecycleOwner, {
-            adapter.submitList(it)
-        })
+        lifecycleScope.launch {
+            viewModel.listData.collect {
+                adapter.submitData(it)
+            }
+        }
+
+
+//        viewModel.data.observe(viewLifecycleOwner, {
+//            adapter.submitList(it)
+//        })
         // pass argument to the next fragment
         adapter.clickListener.onItemClick = {
             findNavController().navigate(MovieListFragmentDirections.actionUsersListToUserDetails(it.id))

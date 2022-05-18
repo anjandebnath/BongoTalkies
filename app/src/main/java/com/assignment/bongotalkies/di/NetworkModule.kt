@@ -3,6 +3,7 @@ package com.friendsapp.github.di
 
 import androidx.viewbinding.BuildConfig
 import com.assignment.bongotalkies.network.MovieListService
+import com.assignment.bongotalkies.util.Constants.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -48,7 +49,7 @@ object NetworkModule {
     @Provides
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create())
-        .baseUrl("https://api.themoviedb.org/3/")
+        .baseUrl(BASE_URL)
         .client(okHttpClient)
         .build()
 
