@@ -17,6 +17,9 @@ screen of movie details.
 7. You must write unit tests.
 
 ### Output Screen
-![Screen1](https://github.com/anjandebnath/BongoTalkies/blob/main/app/src/main/res/drawable/page1.PNG)
 
-![Screen2](https://github.com/anjandebnath/BongoTalkies/blob/main/app/src/main/res/drawable/page2.PNG)
+Screen 1             |  Screen 2
+:-------------------------:|:-------------------------:
+![Screen1](https://github.com/anjandebnath/BongoTalkies/blob/main/app/src/main/res/drawable/page1.PNG)  |  ![Screen2](https://github.com/anjandebnath/BongoTalkies/blob/main/app/src/main/res/drawable/page2.PNG)
+
+
