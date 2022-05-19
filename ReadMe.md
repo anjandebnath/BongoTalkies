@@ -15,3 +15,8 @@ screen of movie details.
 5. Apply material design guidelines for every page.
 6. Apply MVVM pattern with Google provided guide to app architecture.
 7. You must write unit tests.
+
+### Output Screen
+![Screen1](https://github.com/anjandebnath/BongoTalkies/blob/main/app/src/main/res/drawable/page1.PNG)
+
+![Screen2](https://github.com/anjandebnath/BongoTalkies/blob/main/app/src/main/res/drawable/page2.PNG)
