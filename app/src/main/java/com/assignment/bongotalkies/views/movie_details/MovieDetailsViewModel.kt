@@ -2,7 +2,7 @@ package com.assignment.bongotalkies.views.movie_details
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.assignment.bongotalkies.domain.ResponseApi
+import com.assignment.bongotalkies.domain.DetailsResponseApi
 import com.assignment.bongotalkies.repository.MovieDetailsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.*
@@ -14,7 +14,7 @@ class MovieDetailsViewModel @Inject constructor(
 ) : ViewModel() {
 
     val errorMessage = MutableLiveData<String>()
-    val movieList = MutableLiveData<ResponseApi>()
+    val movieList = MutableLiveData<DetailsResponseApi>()
     var job: Job? = null
     private val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
         onError("Exception handled: ${throwable.localizedMessage}")

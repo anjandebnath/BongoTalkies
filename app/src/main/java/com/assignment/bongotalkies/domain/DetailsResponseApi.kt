@@ -1,6 +1,6 @@
 package com.assignment.bongotalkies.domain
 
-data class ResponseApi(
+data class DetailsResponseApi(
     val adult: Boolean,
     val backdrop_path: String,
     val budget: Int,

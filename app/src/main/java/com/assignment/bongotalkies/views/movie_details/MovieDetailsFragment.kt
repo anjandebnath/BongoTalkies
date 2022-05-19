@@ -11,7 +11,6 @@ import androidx.lifecycle.observe
 import androidx.navigation.fragment.navArgs
 import com.assignment.bongotalkies.R
 import com.assignment.bongotalkies.databinding.FragmentMovieDetailsBinding
-import com.assignment.bongotalkies.databinding.FragmentProfileBinding
 import com.assignment.bongotalkies.util.Constants
 import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
