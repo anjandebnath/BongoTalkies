@@ -6,7 +6,6 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.assignment.bongotalkies.databinding.GridMovieListBinding
-import com.assignment.bongotalkies.domain.MovieListItem
 import com.assignment.bongotalkies.network.model.ResultMovie
 import dagger.hilt.android.scopes.FragmentScoped
 import javax.inject.Inject

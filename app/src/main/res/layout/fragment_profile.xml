@@ -11,6 +11,7 @@
             type="com.assignment.bongotalkies.views.movie_details.MovieDetailsViewModel" />
     </data>
 
+
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -59,7 +60,7 @@
             <ImageView
                 android:layout_width="36dp"
                 android:layout_height="36dp"
-                android:src="@drawable/ic_email_black_24dp"/>
+                android:src="@drawable/ic_star_border_black_24dp"/>
             <TextView
                 android:id="@+id/email"
                 android:textStyle="bold"
@@ -99,7 +100,7 @@
             <ImageView
                 android:layout_width="36dp"
                 android:layout_height="36dp"
-                android:src="@drawable/ic_location_city_black_24dp"/>
+                android:src="@drawable/ic_insert_chart_black_24dp"/>
             <TextView
                 android:id="@+id/city"
                 android:textStyle="bold"

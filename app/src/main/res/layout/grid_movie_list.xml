@@ -21,65 +21,43 @@
         app:cardCornerRadius="5dp"
         app:cardBackgroundColor="@android:color/white"
         android:layout_margin="10dp"
+        android:onClick="@{() -> clickListener.onClick(data)}"
         app:cardElevation="8dp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <!--<androidx.constraintlayout.widget.ConstraintLayout
             android:padding="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> clickListener.onClick(data)}"
-            >
+            >-->
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/image"
                 app:imageUrl="@{data.backdropPath}"
-                app:srcCompat="@drawable/ic_avatar_40dp"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:adjustViewBounds="true"
-                app:layout_constraintBottom_toTopOf="@+id/text"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.74" />
+                android:layout_width="match_parent"
+                android:scaleType="centerCrop"
+                android:layout_height="200dp"
+                tools:background="@tools:sample/backgrounds/scenic"/>
 
             <TextView
                 android:id="@+id/text"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="top|start"
-                android:layout_marginTop="8dp"
-                android:layout_weight="1"
+                android:gravity="center_vertical"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 android:text="@{data.title}"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toTopOf="@+id/subtitle_text"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/image"
-                tools:text="Titanic" />
-
-            <TextView
-                android:id="@+id/subtitle_text"
-                android:text="@{data.releaseDate}"
-                android:textSize="18sp"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top|start"
-                android:layout_weight="1"
-                android:ellipsize="end"
-                android:maxLines="5"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text"
-                tools:text="1990-05-12"/>
+                android:background="#D3FFFFFF"
+                android:padding="8dp"
+                android:lines="1"
+                android:maxLines="1"
+                android:layout_gravity="bottom"
+                android:textStyle="bold"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+       <!-- </androidx.constraintlayout.widget.ConstraintLayout>-->
 
   </androidx.cardview.widget.CardView>
 

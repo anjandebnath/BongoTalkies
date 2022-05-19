@@ -1,9 +1,7 @@
 package com.assignment.bongotalkies.views.movie_details
 
-import androidx.databinding.ObservableParcelable
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.assignment.bongotalkies.domain.MovieDetails
 import com.assignment.bongotalkies.domain.ResponseApi
 import com.assignment.bongotalkies.repository.MovieDetailsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
