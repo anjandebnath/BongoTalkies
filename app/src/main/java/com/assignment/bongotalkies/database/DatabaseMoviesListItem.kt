@@ -11,45 +11,22 @@ data class DatabaseMoviesListItem constructor(
     val id: Int,
     val adult: String,
     val backdropPath: String,
-    val originalTitle: String,
-    val overview: String,
-    val popularity: String,
-    val posterPath: String,
-    val releaseDate: String,
     val title : String,
-    val voteAvg : String,
-    val voteCount : String
-
-
+    val overview: String,
+    val popularity: String
 )
 
-fun List<DatabaseMoviesListItem>.asDomainModel(): List<MovieListItem> {
+
+fun List<DatabaseMoviesListItem>.asDomainModel(): List<MovieDetails> {
     return map {
-        MovieListItem(
+        MovieDetails(
             id = it.id,
             adult = it.adult,
             backdropPath = it.backdropPath,
-            originalTitle = it.originalTitle,
+            title = it.title,
             overview = it.overview,
             popularity = it.popularity,
-            posterPath = it.posterPath,
-            releaseDate = it.releaseDate,
-            title = it.title,
-            voteAvg = it.voteAvg,
-            voteCount = it.voteCount
-        )
+            )
     }
-}
 
-fun DatabaseMoviesListItem.asDomainModel(): MovieDetails {
-    return MovieDetails(
-        //id = id,
-//        avatar = largeAvatar,
-//        username = username,
-//        city = city,
-//        state = state,
-//        country = country,
-//        email = email,
-//        cellPhone = cellPhone
-    )
 }

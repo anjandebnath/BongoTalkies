@@ -22,17 +22,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="350dp"
-
             android:orientation="vertical">
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/image"
-                imageUrl="@{viewModel.rqstUserDetails.avatar}"
-                android:layout_width="200dp"
+                android:layout_width="match_parent"
+                android:scaleType="centerCrop"
                 android:layout_height="200dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="45dp"
-                android:src="@drawable/ic_avatar_40dp" />
+                tools:background="@tools:sample/backgrounds/scenic"/>
 
             <TextView
                 android:id="@+id/name"
@@ -40,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
-                android:text="@{viewModel.rqstUserDetails.username}"
+
                 android:textColor="#1C1A1A"
                 android:textSize="21sp"
                 android:textStyle="bold"
@@ -71,7 +68,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="20dp"
-                android:text="@{viewModel.rqstUserDetails.email}"/>
+
+                />
         </LinearLayout>
         <LinearLayout
             android:layout_marginTop="25dp"
@@ -90,7 +88,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="20dp"
-                android:text="@{viewModel.rqstUserDetails.cellPhone}"/>
+                />
         </LinearLayout>
         <LinearLayout
             android:layout_marginTop="25dp"
@@ -109,7 +107,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
-                android:text="@{viewModel.rqstUserDetails.city}"/>
+                />
 
             <TextView
                 android:id="@+id/state"
@@ -118,7 +116,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
-                android:text="@{viewModel.rqstUserDetails.state}"/>
+                />
 
             <TextView
                 android:id="@+id/country"
@@ -127,7 +125,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
-                android:text="@{viewModel.rqstUserDetails.country}"/>
+                />
         </LinearLayout>
 
 

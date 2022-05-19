@@ -11,10 +11,16 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.observe
 import androidx.navigation.fragment.navArgs
 import com.assignment.bongotalkies.R
 import com.assignment.bongotalkies.databinding.FragmentProfileBinding
+import com.assignment.bongotalkies.util.Constants
+import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MovieDetailsFragment : Fragment() {
@@ -35,19 +41,6 @@ class MovieDetailsFragment : Fragment() {
         )
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
-        // method to redirect to provided link
-        binding.email.setMovementMethod(LinkMovementMethod.getInstance());
-
-        // method to change color of link
-        binding.email.setLinkTextColor(Color.BLUE);
-        binding.email.setOnClickListener {
-
-            val intent = Intent(Intent.ACTION_SENDTO)
-            intent.data = Uri.parse("mailto:") // only email apps should handle this
-            /*intent.putExtra(Intent.EXTRA_EMAIL, "desmond.lua@luasoftware.com")
-            intent.putExtra(Intent.EXTRA_SUBJECT,"Feedback")*/
-            startActivity(intent)
-        }
 
         return binding.root
     }
@@ -59,9 +52,31 @@ class MovieDetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getMovieDetails(args.movieId).observe(viewLifecycleOwner, {
+
+       /* viewModel.getMovieDetailsFromLocal(args.movieId).observe(viewLifecycleOwner, {
             viewModel.rqstUserDetails.set(it)
-        })
+        })*/
+
+        viewModel.movieList.observe(viewLifecycleOwner){
+            val media = Constants.IMAGE_CDN + it.backdrop_path
+            val id = it.id
+            binding.name.setText(it.original_title)
+            if (media !== null) {
+                Glide.with(this)
+                    .load(media)
+                    .into(binding.image)
+            } else {
+                binding.image.setImageResource(R.drawable.ic_launcher_background)
+            }
+
+        }
+
+
+        viewModel.fetchMovieDetails(args.movieId)
+
+
+
+
     }
 
     override fun onDestroyView() {
