@@ -2,8 +2,8 @@ package com.assignment.bongotalkies.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
+import com.assignment.bongotalkies.domain.ResultMovie
 import com.assignment.bongotalkies.network.MovieListService
-import com.assignment.bongotalkies.network.model.ResultMovie
 
 import java.lang.Exception
 
@@ -19,7 +19,7 @@ class MoviePagingSource(private val movieListService: MovieListService):
             val currentPage = params.key ?: 1
             val response = movieListService.getMovieList(currentPage)
 
-            val data = response.body()?.result ?: emptyList()
+            val data = response.body()?.results ?: emptyList()
             val responseData = mutableListOf<ResultMovie>()
             responseData.addAll(data)
 

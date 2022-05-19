@@ -7,7 +7,7 @@
 
         <variable
             name="data"
-            type="com.assignment.bongotalkies.network.model.ResultMovie" />
+            type="com.assignment.bongotalkies.domain.ResultMovie" />
 
         <variable
             name="clickListener"
@@ -26,7 +26,7 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/image"
-                app:imageUrl="@{data.backdropPath}"
+                app:imageUrl="@{data.backdrop_path}"
                 android:layout_width="match_parent"
                 android:scaleType="centerCrop"
                 android:layout_height="200dp"
