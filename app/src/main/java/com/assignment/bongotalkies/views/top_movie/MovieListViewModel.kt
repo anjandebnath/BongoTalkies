@@ -12,14 +12,14 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MovieListViewModel
-@Inject constructor(
+@Inject constructor( // Primary constructor
     private val movieListService: MovieListService
 ) : ViewModel() {
 
     val listData = Pager(PagingConfig(pageSize = 1)){
         MoviePagingSource(movieListService)
 
-    }.flow.cachedIn(viewModelScope)
+    }.flow.cachedIn(viewModelScope) // flow allows continous stream of data
 
 
 }

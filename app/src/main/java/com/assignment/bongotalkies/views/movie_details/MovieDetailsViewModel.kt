@@ -16,25 +16,21 @@ class MovieDetailsViewModel @Inject constructor(
     val errorMessage = MutableLiveData<String>()
     val movieList = MutableLiveData<DetailsResponseApi>()
     var job: Job? = null
+
     private val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
         onError("Exception handled: ${throwable.localizedMessage}")
     }
-    val loading = MutableLiveData<Boolean>()
 
-
-//    val rqstUserDetails = ObservableParcelable(MovieDetails())
-//
-//    fun getMovieDetailsFromLocal(movieId: Int) = movieDetailsRepository.getMovieDetails(movieId)
 
     fun fetchMovieDetails(movieId: Int){
 
         job = CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
-            loading.postValue(true)
+
             val response = movieDetailsRepository.fetchMovieDetails(movieId)
             withContext(Dispatchers.Main) {
                 if (response.isSuccessful) {
                     movieList.postValue(response.body())
-                    loading.value = false
+
                 } else {
                     onError("Error : ${response.message()} ")
                 }
@@ -45,7 +41,6 @@ class MovieDetailsViewModel @Inject constructor(
 
     private fun onError(message: String) {
         errorMessage.value = message
-        loading.value = false
     }
 
     override fun onCleared() {

@@ -25,8 +25,10 @@ class MovieListFragment : Fragment(){
     private val viewModel: MovieListViewModel by viewModels()
     @Inject
     lateinit var adapter: MoviePagedAdapter
-
+    // To allow nulls, you can declare a variable as a nullable by writing String?:
     private var _binding: FragmentMovieListBinding? = null
+    // not-null assertion operator (!!) converts any value to a non-null type and
+    // throws an exception if the value is null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -49,6 +51,17 @@ class MovieListFragment : Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // A scope controls the lifetime of coroutines through its job.
+
+        /**
+         * https://antonioleiva.com/lambdas-kotlin-android/
+         * If the function’s last parameter is a function, it can go outside the parentheses
+         * If a function has only one parameter, and this is a function, the parentheses can be deleted
+         * If you don’t use the parameter of a lambda, you can remove the left side of the function
+         * functions that only receive a parameter, instead of defining the left side,
+         * we could use the reserved word it, saving some characters.
+         */
         lifecycleScope.launch {
             viewModel.listData.collect {
                 adapter.submitData(it)

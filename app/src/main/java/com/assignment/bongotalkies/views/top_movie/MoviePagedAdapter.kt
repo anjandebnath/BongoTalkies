@@ -34,7 +34,12 @@ class MoviePagedAdapter @Inject constructor(val clickListener: ClickListener):
                 binding.clickListener = clickListener
             }
 
-            companion object {
+        /**
+         * companion object is equivalent to Static.
+         * A class that has a companion object, the members of the class can easily be accessed
+         * without creating an object to access them.
+         */
+        companion object {
                 fun from(parent: ViewGroup): MyViewHolder {
                     val layoutInflater = LayoutInflater.from(parent.context)
                     val binding = GridMovieListBinding.inflate(layoutInflater, parent, false)
