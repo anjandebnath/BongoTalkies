@@ -18,7 +18,9 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import util.MockResponseFileReader
 
-
+/**
+ * Mock the Retrofit service to test the REST Api call
+ */
 @RunWith(JUnit4::class)
 class MovieDetailsViewModelTest {
 
