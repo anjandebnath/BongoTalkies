@@ -17,14 +17,14 @@ class MovieDetailsViewModel @Inject constructor(
     val movieList = MutableLiveData<DetailsResponseApi>()
     var job: Job? = null
 
-    private val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
+    /*private val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
         onError("Exception handled: ${throwable.localizedMessage}")
-    }
+    }*/
 
 
     fun fetchMovieDetails(movieId: Int){
 
-        job = CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
+        job = CoroutineScope(Dispatchers.IO).launch {
 
             val response = movieDetailsRepository.fetchMovieDetails(movieId)
             withContext(Dispatchers.Main) {
